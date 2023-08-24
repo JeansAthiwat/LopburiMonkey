@@ -50,7 +50,6 @@ public class Main {
         System.out.println("<1> BaseMonkey");
         System.out.println("<2> BaseMonkey");
         System.out.println("<3> BaseMonkey");
-
     }
 
     public static void createNewMonkeyFlow(){
@@ -59,9 +58,19 @@ public class Main {
 
     public static void startGameFlow(){
 
-        //player turn
-            //monkeyattackFlow
-        //enemy turn
+        while(!GameSystem.getInstance().isGameEnd()){
+
+            //player turn
+                while(GameSystem.get){
+
+                }
+                //monkeyattackFlow
+            //enemy turn
+
+        }
+
+        System.out.println("the MONKE has lost to the ape...It is over");
+
 
 
     }
