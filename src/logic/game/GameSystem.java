@@ -6,7 +6,7 @@ import java.util.*;
 public class GameSystem {
     private final ArrayList<BaseMonkey> monkeyContainer;
     private final ArrayList<BaseMonkey> apeContainer;
-
+    private int gameState = 0;
     private int sp = 5;
 
 
@@ -72,11 +72,8 @@ public class GameSystem {
             System.out.println(temp.getType() + " hp : " +temp.getHp() + " atk : " +temp.getAtk());
         }
     }
-    public void removeDeadCompetitors(ArrayList<BaseMonkey>) {
-        for(int j=getMonkeyContainer().size()-1;j>=0;j--) {
-            if(getMonkeyContainer().get(j).getHp()<=0) {
-                getMonkeyContainer().remove(j);
-            }
-        }
+
+    public void removeDeadEntity(ArrayList<BaseMonkey> entityContainer) {
+        entityContainer.removeIf(m -> m.getHp() <= 0);
     }
 }
