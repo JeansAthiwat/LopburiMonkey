@@ -1,5 +1,7 @@
 package Monkey;
 
+import logic.game.GameSystem;
+
 public class UgabugagaMonkey extends BaseMonkey {
     private final int debuff,heal;
     public UgabugagaMonkey(int hp, int atk, int def) {

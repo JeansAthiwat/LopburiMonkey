@@ -61,10 +61,38 @@ public class Main {
         while(!GameSystem.getInstance().isGameEnd()){
 
             //player turn
+                // sysout menu to choose between each character (+end Turn )
+            /*
+                Choose
+                SP Left : 5
+                1 BaseMK hp:1 atk:2 def:3
+                2 MOMMYMk hp:6 atk:4 def:5
+                3 UhabugagaMOnkey hp:5 atk:1 def:2
+                4.End TURN
+                INPUT: _
+             */
+
+            /*
+                BaseMK hp:1 atk:2 def:3
+                1) attack
+                2) back
+                --------------------------
+               MOMMYMk hp:6 atk:4 def:5
+               1) attack -- call fn attack(BaseMonkey) ->
+               2) perform skill
+               3) back
+
+             */
+
+                // while(sp != 0 && notENDTURN)
+                //
                 while(GameSystem.get){
 
                 }
                 //monkeyattackFlow
+
+
+
             //enemy turn
 
         }
