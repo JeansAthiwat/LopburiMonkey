@@ -4,6 +4,7 @@ import Monkey.BaseMonkey;
 import java.util.*;
 public class GameSystem {
     private ArrayList<BaseMonkey> monkeyContainer;
+    private ArrayList<BaseMonkey> ApeContainer;
     private int sp = 5;
     private boolean gameEnd;
     private static GameSystem instance = null;

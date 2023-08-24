@@ -1,6 +1,7 @@
 package application;
 
 import Monkey.BaseMonkey;
+import logic.game.GameSystem;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,19 +16,47 @@ public class Main {
     public static ArrayList<BaseMonkey> monkeyContainer;
 
     public static void main(String[] args) {
-        System.out.println("Welcome To Lopburi! The monkey needs your help defeating the Apes");
+        System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
+        sc = new Scanner(System.in);
+        while(true) { // !GameSystem.getInstance().isGameEnd()
         System.out.println("<0> Select Monkeys for your team");
         System.out.println("<1> Create new monkey");
         System.out.println("<2> START GAME");
-        //int choice =sc.nextInt();
-        while(1+1==2){
+            //GameSystem.getInstance().printCompetitorsStatus();
 
+            int choice = sc.nextInt();
+            while(choice<0||choice>2) {
+                System.out.println("Invalid input");
+                choice = sc.nextInt();
+            }
+            if(choice == 0) {
+                System.out.println("<0> Select Monkeys for your team");
+                selectMonkeyFlow();
+            }
+            else if(choice == 1) {
+                System.out.println("<1> Create new monkey");
+                createNewMonkeyFlow(); //GameSystem.getInstance().getAllCompetitors()
+            }
+            else if(choice==2){
+                System.out.println("<2> START GAME");
+                startGameFlow();
+            }
         }
     }
 
-    public void selectFlow(){
+    public static void selectMonkeyFlow(){
 
     }
+
+    public static void createNewMonkeyFlow(){
+
+    }
+
+    public static void startGameFlow(){
+
+    }
+
+
 
 }
 
