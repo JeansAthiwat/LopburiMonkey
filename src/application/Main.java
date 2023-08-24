@@ -11,11 +11,6 @@ public class Main {
     private static Scanner sc;
     private static int playerTurnState; // 0 = showMonkey, 1 = showAction, 2 = attack, 3 = skill
 
-    public static ArrayList<BaseMonkey> getMonkeyContainer() {
-        return monkeyContainer;
-    }
-
-    public static ArrayList<BaseMonkey> monkeyContainer;
 
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
@@ -90,25 +85,29 @@ public class Main {
                     case 2 -> attackFlow(ChosenMonkey);
                     // show skill flow for each MonkeyType
                     case 3 -> skillFlow(ChosenMonkey);
+
                 }
+                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getApeContainer());
             }
+            //removeDeadApe
+
 
             //enemyTurn
             //loop Through each Ape and randomly attack the Monkey
             for (BaseMonkey ape : GameSystem.getInstance().getApeContainer()) {
-                int randomIndex = random.nextInt(GameSystem.getInstance().getApeContainer().size()) + 1;
-                int feralChance = random.nextInt(100);
-                if(skillChance > 70){
-                    ((Ape) ape).attack();
+                int randomIndex = (int) (Math.random() * ((GameSystem.getInstance().getMonkeyContainer().size())));
+                BaseMonkey targetMonkey = GameSystem.getInstance().getMonkeyContainer().get(randomIndex);
+                double skillChance = Math.random()*100;
+                if (skillChance > 70) {
+                    ((Ape)ape).attackAOE();
+                } else {
+                    ape.attack(targetMonkey);
                 }
-                ape.attack(GameSystem.getInstance().getApeContainer().size().get(randomIndex));
-                GameSystem.getInstance().removeDeadMonkey();
                 if (GameSystem.getInstance().getMonkeyContainer().isEmpty()) {
-
+                    GameSystem.getInstance().setGameEnd(true);
                 }
+                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getMonkeyContainer());
             }
-
-
         }
 
     }
@@ -118,7 +117,7 @@ public class Main {
 
     public static BaseMonkey showSelectedMonkey() {
         System.out.println("Select your monkey to do action.");
-        ArrayList<BaseMonkey> monkeys = getMonkeyContainer();
+        ArrayList<BaseMonkey> monkeys = GameSystem.getInstance().getMonkeyContainer();
         for (int i = 0; i < monkeys.size(); i++) {
 //            System.out.println("<" + i + "> " + monkeys.get(i).getType());
             System.out.println("<" + i + "> " + monkeys.get(i));
