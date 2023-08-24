@@ -96,20 +96,27 @@ public class Main {
                         skillFlow(ChosenMonkey);
                         break;
                 }
+                //TODO: implement a method to remove dead APEs
+                if (GameSystem.getInstance().getApeContainer().isEmpty()) {
+                    //Add new Set of enemy +
+                    //continue
+                }
             }
 
             //enemyTurn
             //loop Through each Ape and randomly attack the Monkey
             for (BaseMonkey ape : GameSystem.getInstance().getApeContainer()) {
-                int randomIndex = random.nextInt(GameSystem.getInstance().getApeContainer().size()) + 1;
-                int feralChance = random.nextInt(100);
-                if(skillChance > 70){
-                    ((Ape) ape).attack
+                int randomIndex = (int) (Math.random() * ((GameSystem.getInstance().getApeContainer().size())));
+                BaseMonkey targetMonkey = GameSystem.getInstance().getApeContainer().get(randomIndex);
+                int skillChance = 50;
+                if (skillChance > 70) {
+                    //ape.attackAOE();
+                } else {
+                    ape.attack(targetMonkey);
                 }
-                ape.attack(GameSystem.getInstance().getApeContainer().size().get(randomIndex));
                 GameSystem.getInstance().removeDeadCompetitors();
                 if (GameSystem.getInstance().getMonkeyContainer().isEmpty()) {
-
+                    GameSystem.getInstance().setGameEnd(true);
                 }
             }
 
@@ -151,6 +158,14 @@ public class Main {
                 playerTurnState = 3;
             }
         }
+
+    }
+
+    public static void attackFlow(BaseMonkey monkey) {
+
+    }
+
+    public static void skillFlow(BaseMonkey monkey) {
 
     }
 

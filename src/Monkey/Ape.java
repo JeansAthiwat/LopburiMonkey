@@ -10,7 +10,7 @@ public class Ape extends BaseMonkey{
         super(maxHp, atk, def);
     }
 
-    public void attack() {
+    public void attackAOE() {
         ArrayList<BaseMonkey> monkeyContainer = GameSystem.getInstance().getMonkeyContainer();
         for(BaseMonkey m:monkeyContainer){
             m.setHp(m.getHp()-getAtk());
