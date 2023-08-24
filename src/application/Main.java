@@ -53,6 +53,9 @@ public class Main {
     }
 
     public static void startGameFlow(){
+        //player turn
+            //monkeyattackFlow
+        //enemy turn
 
     }
 
