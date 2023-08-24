@@ -3,6 +3,7 @@ package application;
 import Monkey.BaseMonkey;
 import logic.game.GameSystem;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,6 +46,10 @@ public class Main {
     }
 
     public static void selectMonkeyFlow(){
+        System.out.println("<0> BaseMonkey");
+        System.out.println("<1> BaseMonkey");
+        System.out.println("<2> BaseMonkey");
+        System.out.println("<3> BaseMonkey");
 
     }
 
@@ -53,9 +58,11 @@ public class Main {
     }
 
     public static void startGameFlow(){
+
         //player turn
             //monkeyattackFlow
         //enemy turn
+
 
     }
 
