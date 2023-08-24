@@ -10,6 +10,11 @@ public class Ape extends BaseMonkey{
         super(maxHp, atk, def);
     }
 
+    @Override
+    public void attack(BaseMonkey m) {
+        super.attack(m);
+    }
+
     public void attackAOE() {
         ArrayList<BaseMonkey> monkeyContainer = GameSystem.getInstance().getMonkeyContainer();
         for(BaseMonkey m:monkeyContainer){

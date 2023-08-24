@@ -16,9 +16,10 @@ public class BaseMonkey {
     }
 
     public BaseMonkey(){
-        setHp(6);
-        setAtk(2);
-        setDef(1);
+        this.maxHp = 30;
+        setHp(getMaxHp());
+        setAtk(20);
+        setDef(5);
     }
 
     public int getHp() {
@@ -26,7 +27,9 @@ public class BaseMonkey {
     }
 
     public void setHp(int hp) {
-        this.hp = (hp>0?hp:10);
+        if (hp>maxHp) this.hp = maxHp;
+        else if (hp<0) this.hp = 0;
+        else this.hp = hp;
     }
 
     public int getAtk() {
@@ -34,7 +37,7 @@ public class BaseMonkey {
     }
 
     public void setAtk(int atk) {
-        this.atk = (atk>0?atk:2);
+        this.atk = (atk>0?atk:0);
     }
 
     public int getDef() {

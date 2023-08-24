@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
     private static Scanner sc;
     private static int playerTurnState; // 0 = showMonkey, 1 = showAction, 2 = attack, 3 = skill
-
+    private static int sp = GameSystem.getInstance().getSp();
 
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
@@ -31,7 +31,7 @@ public class Main {
                     selectMonkeyFlow();
                 }
 
-                System.out.print("Our Army:");
+                System.out.print("Our Army:\n");
                 for (BaseMonkey m : GameSystem.getInstance().getMonkeyContainer()) {
                     System.out.println(m.getType());
                 }
@@ -73,10 +73,10 @@ public class Main {
 //    }
 
     public static void startGameFlow() {
-        while (GameSystem.getInstance().isGameEnd()) {
+        while (!GameSystem.getInstance().isGameEnd()) {
             //playerTurn
             BaseMonkey ChosenMonkey = new BaseMonkey();
-            while (GameSystem.getInstance().getSp() > 0){
+            while (sp > 0){
                 switch (playerTurnState) {
                     case 0 -> ChosenMonkey = showSelectedMonkey();
                     // showAction
@@ -103,10 +103,11 @@ public class Main {
                 } else {
                     ape.attack(targetMonkey);
                 }
+                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getMonkeyContainer());
+                sp = 5;
                 if (GameSystem.getInstance().getMonkeyContainer().isEmpty()) {
                     GameSystem.getInstance().setGameEnd(true);
                 }
-                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getMonkeyContainer());
             }
         }
 
@@ -117,6 +118,7 @@ public class Main {
 
     public static BaseMonkey showSelectedMonkey() {
         System.out.println("Select your monkey to do action.");
+        System.out.println("SP :" + sp);
         ArrayList<BaseMonkey> monkeys = GameSystem.getInstance().getMonkeyContainer();
         for (int i = 0; i < monkeys.size(); i++) {
 //            System.out.println("<" + i + "> " + monkeys.get(i).getType());
@@ -126,7 +128,8 @@ public class Main {
         System.out.println("<"+monkeys.size()+">End turn.");
         int choice = sc.nextInt();
         if (choice == monkeys.size()) {
-            GameSystem.getInstance().setSp(0);
+            sp = 0;
+            return null;
         } else {
             playerTurnState = 1;
         }
@@ -146,6 +149,8 @@ public class Main {
             } else {
                 playerTurnState = 3;
             }
+        }else if(choice==2){
+            playerTurnState = 0;
         }
     }
 
@@ -160,8 +165,9 @@ public class Main {
         }
         BaseMonkey ape = apeContainer.get(choice);
         m.attack(ape);
-
+        sp--;
         System.out.println(m.getType() + " has attacked <"+choice+"> "+ape.getType());
+        playerTurnState = 0;
     }
 
     public static void skillFlow(BaseMonkey m){
@@ -188,6 +194,8 @@ public class Main {
 
             System.out.println("UgabugagaMonkey has healed <"+ choice+"> " +healedMonkey.getType());
         }
+        sp-=2;
+        playerTurnState = 0;
     }
 }
 
