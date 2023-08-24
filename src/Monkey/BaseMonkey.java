@@ -55,4 +55,9 @@ public class BaseMonkey {
     public String getType(){
         return this.getClass().getSimpleName();
     }
+
+    @Override
+    public String toString() {
+        return getType() + " hp=" + hp + ", atk=" + atk + ", def=" + def ;
+    }
 }

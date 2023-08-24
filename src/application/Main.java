@@ -23,9 +23,9 @@ public class Main {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
         sc = new Scanner(System.in);
         while(true) { // !GameSystem.getInstance().isGameEnd()
-            System.out.println("<0> Select Monkeys for your team");
+        System.out.println("<0> Select Monkeys for your team");
 //        System.out.println("<1> Create new monkey");
-            System.out.println("<2> START GAME");
+        System.out.println("<2> START GAME");
             //GameSystem.getInstance().printCompetitorsStatus();
 
             int choice = sc.nextInt();
@@ -34,7 +34,7 @@ public class Main {
                 choice = sc.nextInt();
             }
             if(choice == 0) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 3; i++){
                     selectMonkeyFlow();
                 }
 
@@ -68,24 +68,11 @@ public class Main {
         }
 
         switch (choice) {
-
-            case 0:
-                GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey(100,15,10));
-                break;
-
-            case 1:
-                GameSystem.getInstance().getMonkeyContainer().add(new MuscleMonkey(200,20,10));
-                break;
-
-            case 2:
-                GameSystem.getInstance().getMonkeyContainer().add(new MommyMonkey(80,0,10));
-                break;
-
-            case 3:
-                GameSystem.getInstance().getMonkeyContainer().add(new UgabugagaMonkey(80,10,15));
-                break;
+            case 0 -> GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey(100, 15, 10));
+            case 1 -> GameSystem.getInstance().getMonkeyContainer().add(new MuscleMonkey(200, 20, 10));
+            case 2 -> GameSystem.getInstance().getMonkeyContainer().add(new MommyMonkey(80, 0, 10));
+            case 3 -> GameSystem.getInstance().getMonkeyContainer().add(new UgabugagaMonkey(80, 10, 15));
         }
-
     }
 
 //    public static void createNewMonkeyFlow(){
@@ -95,7 +82,7 @@ public class Main {
     public static void startGameFlow(){
     }
 
-
+    showSelectedMonkey();
 
 }
 

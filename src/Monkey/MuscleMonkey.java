@@ -1,7 +1,5 @@
 package Monkey;
 
-import logic.game.GameSystem;
-
 public class MuscleMonkey extends BaseMonkey{
     private final int powerUp;
     public MuscleMonkey(int hp,int atk , int def){

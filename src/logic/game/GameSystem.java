@@ -1,13 +1,12 @@
 package logic.game;
 
-import Monkey.BaseMonkey;
-import Monkey.MommyMonkey;
-import Monkey.MuscleMonkey;
-import Monkey.UgabugagaMonkey;
+import Monkey.*;
 
 import java.util.*;
 public class GameSystem {
     private final ArrayList<BaseMonkey> monkeyContainer;
+    private final ArrayList<BaseMonkey> apeContainer;
+
     private int sp = 5;
 
 
@@ -22,7 +21,8 @@ public class GameSystem {
     }
     private GameSystem() {
         monkeyContainer = new ArrayList<BaseMonkey>();
-        addMonkey();
+        apeContainer = new ArrayList<BaseMonkey>();
+//        addMonkey();
     }
 
     public void addMonkey(){
@@ -35,6 +35,10 @@ public class GameSystem {
         getMonkeyContainer().add(m2);
         getMonkeyContainer().add(m3);
         getMonkeyContainer().add(m4);
+    }
+
+    public void addApe(){
+        getApeContainer().add(new Ape(200,30,10));
     }
     public ArrayList<BaseMonkey> getMonkeyContainer() {
         return monkeyContainer;
@@ -56,6 +60,10 @@ public class GameSystem {
 
     public void setSp(int sp) {
         this.sp = sp;
+    }
+
+    public ArrayList<BaseMonkey> getApeContainer() {
+        return apeContainer;
     }
 
     public void printMonkeyStatus() {
