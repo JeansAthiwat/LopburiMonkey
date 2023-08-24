@@ -22,10 +22,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
         sc = new Scanner(System.in);
-        while(// !GameSystem.getInstance().isGameEnd()) {
-            System.out.println("<0> Select Monkeys for your team");
+        while(true) { // !GameSystem.getInstance().isGameEnd()
+        System.out.println("<0> Select Monkeys for your team");
 //        System.out.println("<1> Create new monkey");
-            System.out.println("<2> START GAME");
+        System.out.println("<2> START GAME");
             //GameSystem.getInstance().printCompetitorsStatus();
 
             int choice = sc.nextInt();
@@ -34,7 +34,7 @@ public class Main {
                 choice = sc.nextInt();
             }
             if(choice == 0) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 3; i++){
                     selectMonkeyFlow();
                 }
 
@@ -73,7 +73,6 @@ public class Main {
             case 2 -> GameSystem.getInstance().getMonkeyContainer().add(new MommyMonkey(80, 0, 10));
             case 3 -> GameSystem.getInstance().getMonkeyContainer().add(new UgabugagaMonkey(80, 10, 15));
         }
-
     }
 
 //    public static void createNewMonkeyFlow(){
@@ -81,17 +80,14 @@ public class Main {
 //    }
 
     public static void startGameFlow(){
-
         //playerTurn
-            while(GameSystem.getInstance().getSp() > 0) {
-                showSelectedMonkey();
-                int selectedMonkeyIndex = sc.nextInt();
-            }
-
-
+        while(GameSystem.getInstance().getSp() > 0) {
+            showSelectedMonkey();
+            int selectedMonkeyIndex = sc.nextInt();
+        }
     }
 
-
+    showSelectedMonkey();
 
 }
 
