@@ -4,13 +4,13 @@ public class MuscleMonkey extends BaseMonkey{
     private final int powerUp;
     public MuscleMonkey(int hp,int atk , int def){
         super(hp,atk,def);
-        this.powerUp = 2;
+        this.powerUp = 4;
     }
 
     @Override
     public void attack(BaseMonkey m) {
         super.attack(m);
-        buff();
+        super.attack(m);
     }
 
     public void buff() {

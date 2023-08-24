@@ -10,7 +10,7 @@ public class GameSystem {
     private int sp = 5;
 
 
-    private boolean gameEnd;
+    private boolean gameEnd = false;
     private static GameSystem instance = null;
 
     public static GameSystem getInstance() {
@@ -23,6 +23,7 @@ public class GameSystem {
         monkeyContainer = new ArrayList<BaseMonkey>();
         apeContainer = new ArrayList<BaseMonkey>();
 //        addMonkey();
+        addApe();
     }
 
     public void addMonkey(){
@@ -37,8 +38,8 @@ public class GameSystem {
         getMonkeyContainer().add(m4);
     }
 
-    public void addApe(){
-        getApeContainer().add(new Ape(200,30,10));
+    public void addApe() {
+        for (int i = 0; i < 3; i++) getApeContainer().add(new Ape(200, 30, 10));
     }
     public ArrayList<BaseMonkey> getMonkeyContainer() {
         return monkeyContainer;
