@@ -1,6 +1,9 @@
 package application;
 
 import Monkey.BaseMonkey;
+import Monkey.MommyMonkey;
+import Monkey.MuscleMonkey;
+import Monkey.UgabugagaMonkey;
 import logic.game.GameSystem;
 
 
@@ -20,9 +23,9 @@ public class Main {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
         sc = new Scanner(System.in);
         while(true) { // !GameSystem.getInstance().isGameEnd()
-        System.out.println("<0> Select Monkeys for your team");
-        System.out.println("<1> Create new monkey");
-        System.out.println("<2> START GAME");
+            System.out.println("<0> Select Monkeys for your team");
+//        System.out.println("<1> Create new monkey");
+            System.out.println("<2> START GAME");
             //GameSystem.getInstance().printCompetitorsStatus();
 
             int choice = sc.nextInt();
@@ -31,13 +34,19 @@ public class Main {
                 choice = sc.nextInt();
             }
             if(choice == 0) {
-                System.out.println("<0> Select Monkeys for your team");
-                selectMonkeyFlow();
+                for (int i = 0; i < 3; i++) {
+                    selectMonkeyFlow();
+                }
+
+                System.out.print("Our Army:");
+                for (BaseMonkey m:GameSystem.getInstance().getMonkeyContainer()){
+                    System.out.println(m.getType());
+                }
             }
-            else if(choice == 1) {
-                System.out.println("<1> Create new monkey");
-                createNewMonkeyFlow(); //GameSystem.getInstance().getAllCompetitors()
-            }
+//            else if(choice == 1) {
+//                System.out.println("<1> Create new monkey");
+//                createNewMonkeyFlow(); //GameSystem.getInstance().getAllCompetitors()
+//            }
             else if(choice==2){
                 System.out.println("<2> START GAME");
                 startGameFlow();
@@ -47,60 +56,43 @@ public class Main {
 
     public static void selectMonkeyFlow(){
         System.out.println("<0> BaseMonkey");
-        System.out.println("<1> BaseMonkey");
-        System.out.println("<2> BaseMonkey");
-        System.out.println("<3> BaseMonkey");
-    }
+        System.out.println("<1> MuscleMonkey");
+        System.out.println("<2> MommyMonkey");
+        System.out.println("<3> UgabugagaMonkey");
 
-    public static void createNewMonkeyFlow(){
+        int choice = sc.nextInt();
 
-    }
-
-    public static void startGameFlow(){
-
-        while(!GameSystem.getInstance().isGameEnd()){
-
-            //player turn
-                // sysout menu to choose between each character (+end Turn )
-            /*
-                Choose
-                SP Left : 5
-                1 BaseMK hp:1 atk:2 def:3
-                2 MOMMYMk hp:6 atk:4 def:5
-                3 UhabugagaMOnkey hp:5 atk:1 def:2
-                4.End TURN
-                INPUT: _
-             */
-
-            /*
-                BaseMK hp:1 atk:2 def:3
-                1) attack
-                2) back
-                --------------------------
-               MOMMYMk hp:6 atk:4 def:5
-               1) attack -- call fn attack(BaseMonkey) ->
-               2) perform skill
-               3) back
-
-             */
-
-                // while(sp != 0 && notENDTURN)
-                //
-                while(GameSystem.get){
-
-                }
-                //monkeyattackFlow
-
-
-
-            //enemy turn
-
+        while(choice<0 || choice>4){
+            System.out.println("Invalid Input");
+            choice = sc.nextInt();
         }
 
-        System.out.println("the MONKE has lost to the ape...It is over");
+        switch (choice) {
 
+            case 0:
+                GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey(100,15,10));
+                break;
 
+            case 1:
+                GameSystem.getInstance().getMonkeyContainer().add(new MuscleMonkey(200,20,10));
+                break;
 
+            case 2:
+                GameSystem.getInstance().getMonkeyContainer().add(new MommyMonkey(80,0,10));
+                break;
+
+            case 3:
+                GameSystem.getInstance().getMonkeyContainer().add(new UgabugagaMonkey(80,10,15));
+                break;
+        }
+
+    }
+
+//    public static void createNewMonkeyFlow(){
+//
+//    }
+
+    public static void startGameFlow(){
     }
 
 
