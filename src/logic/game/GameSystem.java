@@ -4,25 +4,21 @@ import Monkey.*;
 
 import java.util.*;
 public class GameSystem {
-    private final ArrayList<BaseMonkey> monkeyContainer;
-    private final ArrayList<BaseMonkey> apeContainer;
+    private final ArrayList<BaseMonkey> monkeyContainer = new ArrayList<BaseMonkey>();;
+    private final ArrayList<BaseMonkey> apeContainer = new ArrayList<BaseMonkey>();;
     private int gameState = 0;
     private int sp = 5;
 
 
     private boolean gameEnd = false;
-    private static GameSystem instance = null;
+    private static GameSystem instance = new GameSystem();
 
     public static GameSystem getInstance() {
-        if(instance == null) {
-            instance = new GameSystem();
-        }
         return instance;
     }
     private GameSystem() {
-        monkeyContainer = new ArrayList<BaseMonkey>();
-        apeContainer = new ArrayList<BaseMonkey>();
-//        addMonkey();
+       // monkeyContainer = new ArrayList<BaseMonkey>();
+        //apeContainer = new ArrayList<BaseMonkey>();
         addApe();
     }
 

@@ -11,7 +11,9 @@ public class Main {
     private static Scanner sc;
     private static int playerTurnState; // 0 = showMonkey, 1 = showAction, 2 = attack, 3 = skill
     private static int sp = GameSystem.getInstance().getSp();
-
+    private GameSystem gs = GameSystem.getInstance(); //TODO: Change all gamesystem.getinstance() to gs
+    //TODO: check input for every input loop to prevent error
+    //TODO: add More Text to discribe each action in terminal
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
         sc = new Scanner(System.in);

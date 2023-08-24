@@ -7,10 +7,10 @@ public class MommyMonkey extends BaseMonkey{
         super(hp, atk, def);
     }
 
-    @Override
+   /* @Override
     public void attack(BaseMonkey m) {
 
-    }
+    }*/
 
     public void birth(){
         GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey());
