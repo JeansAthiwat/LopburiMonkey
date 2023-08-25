@@ -10,18 +10,18 @@ import java.util.Scanner;
 public class Main {
     private static Scanner sc;
     private static int playerTurnState; // 0 = showMonkey, 1 = showAction, 2 = attack, 3 = skill
-    private static int sp = GameSystem.getInstance().getSp();
-    private GameSystem gs = GameSystem.getInstance(); //TODO: Change all gamesystem.getinstance() to gs
+    private static GameSystem gs = GameSystem.getInstance();
+    private static int sp = gs.getSp();
     //TODO: check input for every input loop to prevent error
     //TODO: add More Text to discribe each action in terminal
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
         sc = new Scanner(System.in);
-        while (true) { // !GameSystem.getInstance().isGameEnd()
+        while (true) { // !gs.isGameEnd()
             System.out.println("<0> Select Monkeys for your team");
 //        System.out.println("<1> Create new monkey");
             System.out.println("<2> START GAME");
-            //GameSystem.getInstance().printCompetitorsStatus();
+            //gs.printCompetitorsStatus();
 
             int choice = sc.nextInt();
             while (choice < 0 || choice > 2) {
@@ -34,13 +34,13 @@ public class Main {
                 }
 
                 System.out.print("Our Army:\n");
-                for (BaseMonkey m : GameSystem.getInstance().getMonkeyContainer()) {
+                for (BaseMonkey m : gs.getMonkeyContainer()) {
                     System.out.println(m.getType());
                 }
             }
 //            else if(choice == 1) {
 //                System.out.println("<1> Create new monkey");
-//                createNewMonkeyFlow(); //GameSystem.getInstance().getAllCompetitors()
+//                createNewMonkeyFlow(); //gs.getAllCompetitors()
 //            }
             else if (choice == 2) {
                 System.out.println("<2> START GAME");
@@ -63,10 +63,10 @@ public class Main {
         }
 
         switch (choice) {
-            case 0 -> GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey(100, 15, 10));
-            case 1 -> GameSystem.getInstance().getMonkeyContainer().add(new MuscleMonkey(200, 20, 10));
-            case 2 -> GameSystem.getInstance().getMonkeyContainer().add(new MommyMonkey(80, 0, 10));
-            case 3 -> GameSystem.getInstance().getMonkeyContainer().add(new UgabugagaMonkey(80, 10, 15));
+            case 0 -> gs.getMonkeyContainer().add(new BaseMonkey(100, 15, 10));
+            case 1 -> gs.getMonkeyContainer().add(new MuscleMonkey(200, 20, 10));
+            case 2 -> gs.getMonkeyContainer().add(new MommyMonkey(80, 0, 10));
+            case 3 -> gs.getMonkeyContainer().add(new UgabugagaMonkey(80, 10, 15));
         }
     }
 
@@ -75,7 +75,7 @@ public class Main {
 //    }
 
     public static void startGameFlow() {
-        while (!GameSystem.getInstance().isGameEnd()) {
+        while (!gs.isGameEnd()) {
             //playerTurn
             BaseMonkey ChosenMonkey = new BaseMonkey();
             while (sp > 0){
@@ -90,7 +90,7 @@ public class Main {
 
                 }
 
-                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getApeContainer());
+                gs.removeDeadEntity(gs.getApeContainer());
 
             }
             //removeDeadApe
@@ -98,10 +98,10 @@ public class Main {
 
             //enemyTurn
             //loop Through each Ape and randomly attack the Monkey
-            for (BaseMonkey ape : GameSystem.getInstance().getApeContainer()) {
+            for (BaseMonkey ape : gs.getApeContainer()) {
 
-                int randomIndex = (int) (Math.random() * ((GameSystem.getInstance().getMonkeyContainer().size())));
-                BaseMonkey targetMonkey = GameSystem.getInstance().getMonkeyContainer().get(randomIndex);
+                int randomIndex = (int) (Math.random() * ((gs.getMonkeyContainer().size())));
+                BaseMonkey targetMonkey = gs.getMonkeyContainer().get(randomIndex);
                 double skillChance = Math.random()*100;
                 if (skillChance > 70) {
                     ((Ape)ape).attackAOE();
@@ -109,11 +109,11 @@ public class Main {
                     ape.attack(targetMonkey);
                 }
 
-                GameSystem.getInstance().removeDeadEntity(GameSystem.getInstance().getMonkeyContainer());
+                gs.removeDeadEntity(gs.getMonkeyContainer());
                 sp = 5;
 
-                if (GameSystem.getInstance().getMonkeyContainer().isEmpty()) {
-                    GameSystem.getInstance().setGameEnd(true);
+                if (gs.getMonkeyContainer().isEmpty()) {
+                    gs.setGameEnd(true);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class Main {
     public static BaseMonkey showSelectedMonkey() {
         System.out.println("Select your monkey to do action.");
         System.out.println("SP :" + sp);
-        ArrayList<BaseMonkey> monkeys = GameSystem.getInstance().getMonkeyContainer();
+        ArrayList<BaseMonkey> monkeys = gs.getMonkeyContainer();
         for (int i = 0; i < monkeys.size(); i++) {
 //            System.out.println("<" + i + "> " + monkeys.get(i).getType());
             System.out.println("<" + i + "> " + monkeys.get(i));
@@ -140,7 +140,7 @@ public class Main {
         } else {
             playerTurnState = 1;
         }
-        return GameSystem.getInstance().getMonkeyContainer().get(choice);
+        return gs.getMonkeyContainer().get(choice);
     }
 
     public static void showAction(BaseMonkey monkey) { //state 1
@@ -163,7 +163,7 @@ public class Main {
 
 
     public static void attackFlow(BaseMonkey m){
-        ArrayList<BaseMonkey> apeContainer = GameSystem.getInstance().getApeContainer();
+        ArrayList<BaseMonkey> apeContainer = gs.getApeContainer();
         for (int i = 0; i < apeContainer.size(); i++)
             System.out.println("<"+i+">" + apeContainer.get(i));
 
@@ -190,7 +190,7 @@ public class Main {
             System.out.println("BaseMonkey is ready to fight.");
         } else if (m instanceof UgabugagaMonkey) {
             System.out.println("Choose our monkey to heal");
-            ArrayList<BaseMonkey> monkeyContainer = GameSystem.getInstance().getMonkeyContainer();
+            ArrayList<BaseMonkey> monkeyContainer = gs.getMonkeyContainer();
             for (int i = 0; i < monkeyContainer.size(); i++)
                 System.out.println("<"+i+">" + monkeyContainer.get(i));
 
