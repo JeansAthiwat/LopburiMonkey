@@ -36,8 +36,10 @@ public class Main {
             } else if (choice == 1) {
                 System.out.println("<1> START GAME");
                 startGameFlow();
+                if(gs.isGameEnd()) break;
             }
         }
+        System.out.println("---------- Game is Over -----------");
     }
 
     public static void selectMonkeyFlow() {
@@ -74,13 +76,18 @@ public class Main {
                 }
                 //removeDeadApe
                 gs.removeDeadEntity(gs.getApeContainer());
+                if (gs.getApeContainer().isEmpty()) {
+                    System.out.println("The Apes has been DEFEATED!! Lopburi is now under Monkey's reign!!");
+                    gs.setGameEnd(true);
+                    break;
+                }
 
             }
 
             //enemyTurn (loop Through each Ape and randomly attack the Monkey)
             for (BaseMonkey ape : gs.getApeContainer()) {
 
-                int randomIndex = (int) (Math.random() * ((gs.getMonkeyContainer().size())));
+                int randomIndex = (int) (Math.random() * (gs.getMonkeyContainer().size()-1));
                 BaseMonkey targetMonkey = gs.getMonkeyContainer().get(randomIndex);
                 double skillChance = Math.random() * 100;
                 if (skillChance < 30) { // a 30% chance to use spacial attack AOE attack
@@ -91,7 +98,9 @@ public class Main {
                 gs.removeDeadEntity(gs.getMonkeyContainer());
 
                 if (gs.getMonkeyContainer().isEmpty()) {
+                    System.out.println("The Monkeys has been DEFEATED!! Lopburi will never be the same...");
                     gs.setGameEnd(true);
+                    break;
                 }
             }
 
@@ -128,7 +137,11 @@ public class Main {
         } else if (choice == 1) {
             if (monkey.getType().equals("BaseMonkey")) {
                 System.out.println("Normal monkey doesn't have special skill!");
-            } else {
+            }
+            else if(sp < 2){
+                System.out.println("Not enough SP!");
+            }
+            else {
                 playerTurnState = 3;
             }
         } else if (choice == 2) {
