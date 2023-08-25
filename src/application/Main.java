@@ -13,7 +13,6 @@ public class Main {
     private static GameSystem gs = GameSystem.getInstance();
     private static int sp = gs.getSp();
 
-    //TODO: check input for every input loop to prevent error
     //TODO: add More Text to discribe each action in terminal
     public static void main(String[] args) {
         System.out.println("Welcome To Lopburi...The monkey needs your help defeating the Apes!");
@@ -25,6 +24,7 @@ public class Main {
 
             int choice = inputCheck(0, 1);
             if (choice == 0) {
+                gs.getMonkeyContainer().clear();
                 for (int i = 0; i < 3; i++) {
                     selectMonkeyFlow();
                 }
