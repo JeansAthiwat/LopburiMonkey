@@ -11,7 +11,6 @@ public class Main {
     private static Scanner sc;
     private static int playerTurnState; // 0 = showMonkey, 1 = showAction, 2 = attack, 3 = skill
     private static GameSystem gs = GameSystem.getInstance();
-    private static int sp = gs.getSp();
 
     //TODO: add More Text to discribe each action in terminal
     public static void main(String[] args) {
@@ -22,10 +21,9 @@ public class Main {
         while (true) {
             System.out.println("======================================================================");
             int amount = gs.getMonkeyContainer().size();
-            if (amount == 3){
+            if (amount == 3) {
                 System.out.println("If you want to reselect the monkeys please press <0>.");
-            }
-            else {
+            } else {
                 System.out.println("Please select 3 monkeys before start the game.");
             }
             System.out.println("<0> Select Monkeys for your team");
@@ -40,7 +38,7 @@ public class Main {
                     lst.add("second");
                     lst.add("third");
                     System.out.println("======================================================================");
-                    System.out.println("please select your "+lst.get(i)+" monkey.");
+                    System.out.println("please select your " + lst.get(i) + " monkey.");
                     selectMonkeyFlow();
                 }
                 System.out.println("======================================================================");
@@ -51,7 +49,7 @@ public class Main {
             } else if (choice == 1) {
                 System.out.println("<1> START GAME");
                 startGameFlow();
-                if(gs.isGameEnd()) break;
+                if (gs.isGameEnd()) break;
             }
         }
         System.out.println("---------- Game is Over -----------");
@@ -76,9 +74,9 @@ public class Main {
     public static void startGameFlow() {
         while (!gs.isGameEnd()) {
             //playerTurn
-            sp = 5;
+            gs.setSp(5);
             BaseMonkey ChosenMonkey = new BaseMonkey();
-            while (sp > 0) {
+            while (gs.getSp() > 0) {
                 switch (playerTurnState) {
                     case 0 -> ChosenMonkey = showSelectedMonkey();
                     // showAction
@@ -103,14 +101,14 @@ public class Main {
             int index = 0;
             for (BaseMonkey ape : gs.getApeContainer()) {
 
-                int randomIndex = (int) (Math.random() * (gs.getMonkeyContainer().size()-1));
+                int randomIndex = (int) (Math.random() * (gs.getMonkeyContainer().size() - 1));
                 BaseMonkey targetMonkey = gs.getMonkeyContainer().get(randomIndex);
                 double skillChance = Math.random() * 100;
                 if (skillChance < 30) { // a 30% chance to use spacial attack AOE attack
-                    System.out.println("Ape "+"<"+index+"> attack all of your monkey!");
+                    System.out.println("Ape " + "<" + index + "> attack all of your monkey!");
                     ((Ape) ape).attackAOE();
                 } else {
-                    System.out.println("Ape "+"<"+index+"> attack your <"+randomIndex+"> "+targetMonkey.getType());
+                    System.out.println("Ape " + "<" + index + "> attack your <" + randomIndex + "> " + targetMonkey.getType());
                     ape.attack(targetMonkey);
 
                 }
@@ -132,7 +130,7 @@ public class Main {
     public static BaseMonkey showSelectedMonkey() {
         System.out.println("======================================================================");
         System.out.println("Select your monkey to do action.");
-        System.out.println("Your remaining skill point: " + sp);
+        System.out.println("Your remaining skill point: " + gs.getSp());
         ArrayList<BaseMonkey> monkeys = gs.getMonkeyContainer();
         for (int i = 0; i < monkeys.size(); i++) {
 //            System.out.println("<" + i + "> " + monkeys.get(i).getType());
@@ -142,7 +140,7 @@ public class Main {
         System.out.println("======================================================================");
         int choice = inputCheck(0, monkeys.size());
         if (choice == monkeys.size()) {
-            sp = 0;
+            gs.setSp(0);
             return null;
         } else {
             playerTurnState = 1;
@@ -157,18 +155,16 @@ public class Main {
         System.out.println("<1>Special skill.");
         System.out.println("<2>go back.");
         System.out.println("======================================================================");
-        int choice = inputCheck(0,2);
+        int choice = inputCheck(0, 2);
         if (choice == 0) {
             playerTurnState = 2;
         } else if (choice == 1) {
             if (monkey.getType().equals("BaseMonkey")) {
                 System.out.println("======================================================================");
                 System.out.println("Normal monkey doesn't have special skill!");
-            }
-            else if(sp < 2){
+            } else if (gs.getSp() < 2) {
                 System.out.println("Not enough skill point!");
-            }
-            else {
+            } else {
                 playerTurnState = 3;
             }
         } else if (choice == 2) {
@@ -183,15 +179,15 @@ public class Main {
         for (int i = 0; i < apeContainer.size(); i++)
             System.out.println("<" + i + ">" + apeContainer.get(i));
         System.out.println("======================================================================");
-        int choice = inputCheck(0,apeContainer.size()-1);
+        int choice = inputCheck(0, apeContainer.size() - 1);
         BaseMonkey ape = apeContainer.get(choice);
         int beforeAttack = ape.getHp();
         m.attack(ape);
         int afterAttack = ape.getHp();
         int dmg = beforeAttack - afterAttack;
-        sp--;
+        gs.setSp(gs.getSp() - 1);
         System.out.println("======================================================================");
-        System.out.println(m.getType() + " has attacked <" + choice + "> " + ape.getType()+" with "+dmg+" damages!");
+        System.out.println(m.getType() + " has attacked <" + choice + "> " + ape.getType() + " with " + dmg + " damages!");
         System.out.println("======================================================================");
         playerTurnState = 0;
     }
@@ -212,14 +208,14 @@ public class Main {
             for (int i = 0; i < monkeyContainer.size(); i++)
                 System.out.println("<" + i + ">" + monkeyContainer.get(i));
 
-            int choice = inputCheck(0,monkeyContainer.size()-1);
+            int choice = inputCheck(0, monkeyContainer.size() - 1);
             BaseMonkey healedMonkey = monkeyContainer.get(choice);
             ((UgabugagaMonkey) m).heal(healedMonkey);
             System.out.println("======================================================================");
 
             System.out.println("UgabugagaMonkey has healed <" + choice + "> " + healedMonkey.getType());
         }
-        sp -= 2;
+        gs.setSp(gs.getSp() - 2);
         playerTurnState = 0;
     }
 
