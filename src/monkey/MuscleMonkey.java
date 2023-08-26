@@ -1,4 +1,4 @@
-package Monkey;
+package monkey;
 
 public class MuscleMonkey extends BaseMonkey{
     private final int powerUp;

@@ -1,6 +1,6 @@
 package logic.game;
 
-import Monkey.*;
+import monkey.*;
 
 import java.util.*;
 public class GameSystem {
@@ -83,7 +83,7 @@ public class GameSystem {
 
         if(monkey.getType().equals("Ape")){
             System.out.println("Monkey takes down one enemy ape!");
-            System.out.println("Ape "+"<"+index+"> is fallen!");
+            System.out.println("Ape "+"<"+index+"> has fallen!");
         }
         else{
             System.out.println("your "+ monkey.getType()+" <"+index+">"+" has fallen. Press 'F' to pay them respects.");

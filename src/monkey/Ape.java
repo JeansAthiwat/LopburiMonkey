@@ -1,4 +1,4 @@
-package Monkey;
+package monkey;
 
 import logic.game.GameSystem;
 

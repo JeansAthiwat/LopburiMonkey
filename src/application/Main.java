@@ -1,6 +1,6 @@
 package application;
 
-import Monkey.*;
+import monkey.*;
 import logic.game.GameSystem;
 
 
