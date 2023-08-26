@@ -2,8 +2,8 @@ package monkey;
 
 public class UgabugagaMonkey extends BaseMonkey {
     private final int debuff,heal;
-    public UgabugagaMonkey(int hp, int atk, int def) {
-        super(hp, atk, def);
+    public UgabugagaMonkey(int maxHp, int atk, int def) {
+        super(maxHp, atk, def);
         this.debuff = 1;
         this.heal = 10;
     }

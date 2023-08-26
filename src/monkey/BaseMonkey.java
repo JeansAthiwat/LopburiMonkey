@@ -2,33 +2,50 @@ package monkey;
 
 public class BaseMonkey {
 
-    private int maxHp ,hp, atk , def;
+    private int maxHp, hp, atk, def;
 
-    public BaseMonkey(int maxHp, int atk , int def){
-        this.maxHp = maxHp;
-        setHp(maxHp);
-        setAtk(atk);
-        setDef(def);
-    }
-
-    public int getMaxHp() {
-        return maxHp;
-    }
-
-    public BaseMonkey(){
+    public BaseMonkey() {
         this.maxHp = 30;
         setHp(getMaxHp());
         setAtk(20);
         setDef(5);
     }
 
+    public BaseMonkey(int maxHp, int atk, int def) {
+        this.maxHp = maxHp;
+        setHp(maxHp);
+        setAtk(atk);
+        setDef(def);
+    }
+
+    public void attack(BaseMonkey m) {
+        if (getAtk() > m.getDef()) {
+            int dmg = getAtk() - m.getDef();
+            m.setHp(m.getHp() - dmg);
+        }
+    }
+
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public String toString() {
+        return getType() + " hp=" + hp + ", atk=" + atk + ", def=" + def;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+
     public int getHp() {
         return hp;
     }
 
     public void setHp(int hp) {
-        if (hp>maxHp) this.hp = maxHp;
-        else if (hp<0) this.hp = 0;
+        if (hp > maxHp) this.hp = maxHp;
+        else if (hp < 0) this.hp = 0;
         else this.hp = hp;
     }
 
@@ -37,7 +54,7 @@ public class BaseMonkey {
     }
 
     public void setAtk(int atk) {
-        this.atk = (atk>0?atk:0);
+        this.atk = (atk > 0 ? atk : 0);
     }
 
     public int getDef() {
@@ -45,22 +62,8 @@ public class BaseMonkey {
     }
 
     public void setDef(int def) {
-        this.def = (def>0?def:3);
+        this.def = (def > 0 ? def : 3);
     }
 
-    public void attack(BaseMonkey m){
-        if (getAtk()>m.getDef()){
-            int dmg = getAtk()-m.getDef();
-            m.setHp(m.getHp()-dmg);
-        }
-    }
 
-    public String getType(){
-        return this.getClass().getSimpleName();
-    }
-
-    @Override
-    public String toString() {
-        return getType() + " hp=" + hp + ", atk=" + atk + ", def=" + def ;
-    }
 }

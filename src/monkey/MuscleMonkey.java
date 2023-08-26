@@ -1,10 +1,9 @@
 package monkey;
 
 public class MuscleMonkey extends BaseMonkey{
-    private final int powerUp;
-    public MuscleMonkey(int hp,int atk , int def){
-        super(hp,atk,def);
-        this.powerUp = 4;
+    private final int POWER_UP = 4;
+    public MuscleMonkey(int maxHp,int atk , int def){
+        super(maxHp,atk,def);
     }
 
     @Override
@@ -14,8 +13,8 @@ public class MuscleMonkey extends BaseMonkey{
     }
 
     public void buff() {
-        setAtk(getAtk()+powerUp);
-        setDef(getDef()+powerUp);
+        setAtk(getAtk()+POWER_UP);
+        setDef(getDef()+POWER_UP);
     }
 
 
