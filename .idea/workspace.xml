@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f32a3a51-9f00-47e7-9545-0340d23bc2df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monkey/BaseMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/BaseMonkey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monkey/MommyMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/MommyMonkey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monkey/MuscleMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/MuscleMonkey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/game/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/game/GameSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/monkey/UgabugagaMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/UgabugagaMonkey.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +85,7 @@
       <updated>1692858156623</updated>
       <workItem from="1692858157717" duration="8404000" />
       <workItem from="1692931243095" duration="4643000" />
-      <workItem from="1693035161550" duration="2523000" />
+      <workItem from="1693035161550" duration="3956000" />
     </task>
     <servers />
   </component>
