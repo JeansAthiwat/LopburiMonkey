@@ -8,6 +8,9 @@ public class MommyMonkey extends BaseMonkey {
         super(maxHp, atk, def);
     }
 
+    @Override
+    public void attack(BaseMonkey m) {}
+
     public void birth() {
         GameSystem.getInstance().getMonkeyContainer().add(new BaseMonkey());
     }

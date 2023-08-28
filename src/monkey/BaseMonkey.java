@@ -11,8 +11,12 @@ public class BaseMonkey {
         setDef(5);
     }
 
+    public void setMaxHp(int maxHp) {
+        this.maxHp = (maxHp>0?maxHp:0);
+    }
+
     public BaseMonkey(int maxHp, int atk, int def) {
-        this.maxHp = maxHp;
+        setMaxHp(maxHp);
         setHp(maxHp);
         setAtk(atk);
         setDef(def);
