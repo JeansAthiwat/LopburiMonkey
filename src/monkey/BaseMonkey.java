@@ -62,7 +62,7 @@ public class BaseMonkey {
     }
 
     public void setDef(int def) {
-        this.def = (def > 0 ? def : 3);
+        this.def = (def > 0 ? def : 0);
     }
 
 

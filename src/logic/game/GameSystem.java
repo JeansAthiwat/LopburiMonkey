@@ -6,9 +6,7 @@ import java.util.*;
 
 public class GameSystem {
     private final ArrayList<BaseMonkey> monkeyContainer = new ArrayList<BaseMonkey>();
-    ;
     private final ArrayList<BaseMonkey> apeContainer = new ArrayList<BaseMonkey>();
-    ;
     private int gameState = 0;
     private int sp = 5;
 
