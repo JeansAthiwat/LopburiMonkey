@@ -4,7 +4,7 @@ import logic.game.GameSystem;
 
 import java.util.ArrayList;
 
-public class Ape extends BaseMonkey{
+public class Ape extends monkey.BaseMonkey {
 
     public Ape(int maxHp, int atk, int def) {
         super(maxHp, atk, def);

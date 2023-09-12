@@ -18,7 +18,7 @@ public class GameSystem {
         return instance;
     }
 
-    private GameSystem() {
+    public GameSystem() {
         // monkeyContainer = new ArrayList<BaseMonkey>();
         //apeContainer = new ArrayList<BaseMonkey>();
         addApe();
@@ -68,7 +68,7 @@ public class GameSystem {
     }
 
     public void removeDeadEntity(ArrayList<BaseMonkey> entityContainer) {
-        for (int i = 0; i < entityContainer.size(); i++) {
+        for (int i = entityContainer.size() - 1; i >= 0; i--) {
             BaseMonkey monkey = entityContainer.get(i);
             if (monkey.getHp() <= 0) {
                 entityContainer.remove(monkey);
