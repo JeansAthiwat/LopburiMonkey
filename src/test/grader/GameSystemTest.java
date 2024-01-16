@@ -18,7 +18,7 @@ class GameSystemTest {
         GameSystem.getInstance().addApe();
         assertEquals(3, apeContainer.size());
 
-        for(int i = 0;i < 3;i++){
+        for (int i = 0; i < 3; i++) {
             assertEquals(200, apeContainer.get(i).getMaxHp());
             assertEquals(30, apeContainer.get(i).getAtk());
             assertEquals(10, apeContainer.get(i).getDef());
@@ -62,5 +62,6 @@ class GameSystemTest {
         assertEquals(1, GameSystem.getInstance().getApeContainer().size());
 
 
+        GameSystem.getInstance().getMonkeyContainer().clear();
     }
 }
