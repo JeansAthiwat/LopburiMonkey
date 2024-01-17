@@ -17,6 +17,8 @@ class ApeTest {
         assertEquals(3, test1.getAtk());
         assertEquals(5, test1.getDef());
     }
+
+    @Test
     void badConstructorTest() {
         Ape test1 = new Ape(-1, -3 ,-5);
         assertEquals(0, test1.getMaxHp());
