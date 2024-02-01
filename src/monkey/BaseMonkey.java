@@ -2,7 +2,10 @@ package monkey;
 
 public class BaseMonkey {
 
-    private int maxHp, hp, atk, def;
+    private int maxHp;
+    private int atk;
+    private int hp;
+    private int def;
 
     public BaseMonkey() {
         this.maxHp = 30;

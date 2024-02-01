@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f32a3a51-9f00-47e7-9545-0340d23bc2df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/grader/ApeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/grader/GameSystemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LopburiMonkey.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LopburiMonkey.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/game/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/game/GameSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monkey/Ape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/Ape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/monkey/BaseMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/BaseMonkey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/monkey/UgabugagaMonkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monkey/UgabugagaMonkey.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,6 +34,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -56,7 +61,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/tasto/LopburiMonkey",
+    "last_opened_file_path": "C:/Awork/y2s1/TAprogMeth/LopburiMonkey/M-O-N-K-E-Y_UML.png",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +84,7 @@
       <recent name="monkey" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameSystemTest.removeDeadEntityTest">
+  <component name="RunManager" selected="JUnit.test.grader in LopburiMonkey">
     <configuration name="ApeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LopburiMonkey" />
       <extension name="coverage">
@@ -91,22 +96,6 @@
       <option name="PACKAGE_NAME" value="test.grader" />
       <option name="MAIN_CLASS_NAME" value="test.grader.ApeTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApeTest.attackAOETest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LopburiMonkey" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.grader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.grader" />
-      <option name="MAIN_CLASS_NAME" value="test.grader.ApeTest" />
-      <option name="METHOD_NAME" value="attackAOETest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,13 +147,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.grader in LopburiMonkey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LopburiMonkey" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.grader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.grader" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.grader in LopburiMonkey" />
         <item itemvalue="JUnit.GameSystemTest.removeDeadEntityTest" />
         <item itemvalue="JUnit.GameSystemTest" />
         <item itemvalue="JUnit.GameSystemTest.addApeTest" />
         <item itemvalue="JUnit.ApeTest" />
-        <item itemvalue="JUnit.ApeTest.attackAOETest" />
       </list>
     </recent_temporary>
   </component>

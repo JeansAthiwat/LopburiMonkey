@@ -1,7 +1,9 @@
 package monkey;
 
 public class UgabugagaMonkey extends BaseMonkey {
-    private final static int DEBUFF = 1, HEAL = 10;
+    private final static int DEBUFF = 1;
+    private final static int HEAL = 10;
+
     public UgabugagaMonkey(int maxHp, int atk, int def) {
         super(maxHp, atk, def);
     }

@@ -1,0 +1,50 @@
+@startuml
+class monkey.Ape {
++ <<Create>> Ape(int,int,int)
++ void attack(BaseMonkey)
++ void attackAOE()
+}
+class monkey.MommyMonkey {
++ <<Create>> MommyMonkey(int,int,int)
++ void attack(BaseMonkey)
++ void birth()
+}
+class monkey.BaseMonkey {
+- int maxHp
+- int atk
+- int hp
+- int def
++ <<Create>> BaseMonkey()
++ <<Create>> BaseMonkey(int,int,int)
++ void setMaxHp(int)
++ void attack(BaseMonkey)
++ String getType()
++ String toString()
++ int getMaxHp()
++ int getHp()
++ void setHp(int)
++ int getAtk()
++ void setAtk(int)
++ int getDef()
++ void setDef(int)
+}
+class monkey.MuscleMonkey {
+- int POWER_UP
++ <<Create>> MuscleMonkey(int,int,int)
++ void attack(BaseMonkey)
++ void buff()
+}
+class monkey.UgabugagaMonkey {
+- {static} int DEBUFF
+- {static} int HEAL
++ <<Create>> UgabugagaMonkey(int,int,int)
++ void attack(BaseMonkey)
++ void heal(BaseMonkey)
+}
+
+
+monkey.BaseMonkey <|-- monkey.Ape
+monkey.BaseMonkey <|-- monkey.MommyMonkey
+monkey.BaseMonkey <|-- monkey.MuscleMonkey
+monkey.BaseMonkey <|-- monkey.UgabugagaMonkey
+@enduml
